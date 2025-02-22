@@ -1,0 +1,11 @@
+export const Logo = () => {
+    return (
+      <svg fill="none" height="36" viewBox="0 0 36 36" width="36">
+        <path
+          d="M6 30L10 6L14 30H12L10 14H8L6 30ZM16 6L20 30H18L17 18L15 30H13L12 18L11 30H9L8 18L7 30H5L9 6H11L12 12L13 6H15L16 12L17 6H19L18 18L19 30H17L16 18L15 30H13L12 18L11 30H9L8 18L7 30H5L9 6H11L12 12L13 6H15L16 12L17 6H19L18 18L19 30H17L16 18L15 30H13L12 18L11 30"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  };
+  
