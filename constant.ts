@@ -25,13 +25,13 @@ export type StoryOption = {
        
       export const styleOptions: StyleOption[] = [ 
         { 
-      name: "Artistic", image: "/images/artistic.jpg" }, 
-        { name: "Realistic", image: "/images/realistic.jpg" }, 
-        { name: "Fantasy", image: "/images/fantasy.jpg" },
-        { name: "Dark", image: "/images/dark.jpg" }, 
-        { name: "Water color", image: "/images/watercolor.jpg" },
-        { name: "GTA", image: "/images/gta.jpg" },
-        { name: "comic", image: "/images/comic.jpg" },
-        { name: "Paint", image: "/images/paint.jpg" },
+      name: "Artistic", image: "@/public/Artistic.jpg" }, 
+        { name: "Realistic", image: "@/public/Realistic.jpg" }, 
+        { name: "Fantasy", image: "@/public/fantasy.jpg" },
+        { name: "Dark", image: "@/public/dark.jpg" }, 
+        { name: "Water color", image: "@/public/waterc.jpg" },
+        { name: "GTA", image: "@/public/GTA.jpg" },
+        { name: "comic", image: "@/public/comics.jpg" },
+        { name: "Paint", image: "@/public/paint.jpg" },
       ]; 
       

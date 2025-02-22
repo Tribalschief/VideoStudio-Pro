@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { useVideo } from "@/context/video"
 import Image from "next/image"
-
+import Loading from "../public/grid.svg"
 export default function LoadingModal() {
   const { loading, loadingMessage } = useVideo()
 
@@ -20,7 +20,7 @@ export default function LoadingModal() {
               className="flex flex-col items-center p-6"
             >
               <div className="relative w-64 h-64 mb-6">
-                <Image src="/loading.gif" alt="Loading..." layout="fill" objectFit="cover" className="rounded-2xl" />
+                <Image src={`${Loading}`} alt="Loading..." layout="fill" objectFit="cover" className="rounded-2xl" />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent rounded-2xl" />
               </div>
 
