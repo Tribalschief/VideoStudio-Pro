@@ -10,33 +10,49 @@ import {
   interpolate,
 } from "remotion";
 import { useVideo } from "@/context/video";
+interface Caption {
+  start: number;
+  end: number;
+  text: string;
+}
 
+interface RemotionVideoProps {
+  images: string[];
+  audio: string;
+  captions: Caption[];
+}
 export default function RemotionVideo({
   images = [],
   audio = "",
   captions = [],
-}: any) {
+}: RemotionVideoProps) {
   const {
     images: videoImages,
     audio: videoAudio,
     captions: videoCaptions,
   } = useVideo();
-
+  const unsed = videoImages + videoAudio + videoCaptions;
+  
   const { fps } = useVideoConfig();
   const frame = useCurrentFrame();
 
+  try {
+    return
+  } catch (error) {
+    console.log(error,unsed)
+  }
   const totalDuration =
     captions.length > 0
-      ? Math.ceil((captions[captions.length - 1] as any).end / (1000 / 30)) + 30
+      ? Math.ceil((captions[captions.length - 1] as Caption).end / (1000 / 30)) + 30
       : 1; // add 30 frames for an additional seconds
 
   const getCurrentCaptions = () => {
     const currentTime = (frame / fps) * 1000;
     const currentCaption = captions.find(
-      (caption: any) =>
+      (caption: Caption) =>
         currentTime >= caption.start && currentTime <= caption.end
     );
-    return currentCaption ? (currentCaption as any).text : "";
+    return currentCaption ? (currentCaption).text : "";
   };
 
   const calculateOpacity = (
@@ -76,7 +92,7 @@ export default function RemotionVideo({
 
   return (
     <AbsoluteFill>
-      {images.map((image: any, index: any) => {
+      {images.map((image: string, index: number) => {
         // calculate the start and end frames for this image
         const startFrame = (index * totalDuration) / images.length;
         const endFrame = startFrame + totalDuration;

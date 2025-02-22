@@ -4,10 +4,11 @@ import DashboardVideoPlayer from "@/components/dashboard-video-player";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+export const dynamic = 'force-dynamic'
 
 export default async function Dashboard() {
   const videos = await getUserVideosFromDatabase();
-  console.log("videos in dashboard = ", videos);
+  
 
   return (
     <div className="p-4 md:p-10 min-h-screen">
@@ -25,7 +26,7 @@ export default async function Dashboard() {
           </div>
         </Link>
 
-        {videos.map((video: any) => (
+        {videos.map((video) => (
           <div key={video._id} className="flex flex-col items-center">
             <DashboardVideoPlayer video={video} />
           </div>

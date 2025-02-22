@@ -1,7 +1,8 @@
 import React from "react";
 import { Player } from "@remotion/player";
-import RemotionVideo from "@/components/remotion-video";
+
 import { useVideo } from "@/context/video";
+import RemotionVideo from "./remotion-video";
 
 export default function RemotionPlayer() {
   const { images, audio, captions } = useVideo();
@@ -9,7 +10,7 @@ export default function RemotionPlayer() {
   // calculate total duration based on captions
   const totalDuration =
     captions.length > 0
-      ? Math.ceil((captions[captions.length - 1] as any).end / (1000 / 30)) + 30
+      ? Math.ceil((captions[captions.length - 1]).end / (1000 / 30)) + 30
       : 1; // add 30 frames for an additional seconds
 
   return (

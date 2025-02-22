@@ -3,7 +3,11 @@
 import { motion } from "framer-motion"
 import { Zap, Layers, Cpu, ArrowRight } from "lucide-react"
 import Link from "next/link"
-
+interface FeatureCardProps {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+}
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col justify-center items-center p-4">
@@ -61,7 +65,7 @@ export default function Home() {
   )
 }
 
-function FeatureCard({ icon, title, description }:any) {
+function FeatureCard({ icon, title, description }:FeatureCardProps) {
   return (
     <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="flex items-center mb-4">

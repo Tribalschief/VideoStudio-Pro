@@ -1,4 +1,5 @@
-import { RemotionVideo } from '@/components/remotion-video'
+
+import RemotionVideo from '@/components/remotion-video'
 import React from 'react'
 import { Composition } from 'remotion'
 

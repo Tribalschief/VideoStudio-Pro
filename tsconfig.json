@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Pricing.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Pricing.tsx", "app/dashboard/page.js", "components/remotion-video.jsx", "components/remotion-player.jsx", "components/dashboard-video-player.jsx", "remotion/root.jsx"],
   "exclude": ["node_modules"]
 }

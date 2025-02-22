@@ -7,14 +7,18 @@ export default async function db() {
     return;
   }
 
-  console.log("Connecting to database:", MONGODB);
+ 
 
   if (mongoose.connection.readyState >= 1) return;
 
   try {
     await mongoose.connect(MONGODB);
     console.log("✅ Database connection successful");
-  } catch (err) {
-    console.error("❌ Database connection error:", err.message);
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error("❌ Database connection error:", err.message);
+    } else {
+      console.error("❌ Database connection error:", String(err));
+    }
   }
 }
