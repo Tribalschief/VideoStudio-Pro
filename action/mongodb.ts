@@ -22,16 +22,31 @@ export const saveVideoToDatabase = async (data: any) => {
     // userCredit.credits -= 1;
     // await userCredit.save();
 
-     await new Video({
+    await new Video({
       ...data,
       userEmail,
       userName,
     }).save();
     //  return JSON.parse(JSON.stringify(videos));
-    return { success: true};
+    return { success: true };
     // , credits: userCredit.credits 
   } catch (err) {
     console.error(err);
+  }
+};
+
+export const getAllVideosFromDatabase = async () => {
+  try {
+    await db();
+
+    const videos = await Video.find();
+
+    console.log("Videos found:", videos);
+
+    return videos.length ? JSON.parse(JSON.stringify(videos)) : [];
+  } catch (err) {
+    console.error("Database fetch error:", err);
+    return []; // Return an empty array to prevent `map()` from breaking
   }
 };
 
@@ -50,7 +65,7 @@ export const getUserVideosFromDatabase = async () => {
     const videos = await Video.find({ userEmail });
 
     console.log("Videos found:", videos);
-    
+
     return videos.length ? JSON.parse(JSON.stringify(videos)) : [];
   } catch (err) {
     console.error("Database fetch error:", err);
